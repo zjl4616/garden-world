@@ -1,0 +1,509 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 头部样式 */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 20px 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header h1 {
+    color: #2d3748;
+    font-size: 2.2rem;
+    margin-bottom: 0;
+}
+
+.header h1 i {
+    color: #48bb78;
+    margin-right: 10px;
+}
+
+.stats {
+    display: flex;
+    gap: 30px;
+}
+
+.stat-item {
+    background: #edf2f7;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    color: #2d3748;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item i {
+    color: #ecc94b;
+}
+
+/* 主内容区域 */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main-content {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+/* 花园区域 */
+.garden-container, .shop-container, .tools-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.garden-container h2, .shop-container h2, .tools-container h2 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 花园网格 */
+.garden-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .garden-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+}
+
+.garden-plot {
+    aspect-ratio: 1;
+    background: linear-gradient(145deg, #c6f6d5, #9ae6b4);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.garden-plot:hover {
+    transform: scale(1.05);
+    border-color: #48bb78;
+    box-shadow: 0 5px 15px rgba(72, 187, 120, 0.3);
+}
+
+.garden-plot.empty {
+    background: linear-gradient(145deg, #e2e8f0, #cbd5e0);
+}
+
+.garden-plot.planted {
+    background: linear-gradient(145deg, #fed7d7, #feb2b2);
+}
+
+.garden-plot .plant-icon {
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.garden-plot:hover .plant-icon {
+    transform: scale(1.2);
+}
+
+/* 植物生长进度条 */
+.plant-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: #e2e8f0;
+    border-radius: 0 0 15px 15px;
+    overflow: hidden;
+}
+
+.plant-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #68d391, #38a169);
+    width: 0%;
+    transition: width 1s ease;
+}
+
+/* 商店区域 */
+.seed-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.seed-item {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.seed-item:hover {
+    transform: translateY(-3px);
+    border-color: #4299e1;
+    box-shadow: 0 5px 15px rgba(66, 153, 225, 0.2);
+}
+
+.seed-item.unavailable {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.seed-item.unavailable:hover {
+    transform: none;
+    border-color: #e2e8f0;
+    box-shadow: none;
+}
+
+.seed-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.seed-name {
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 5px;
+}
+
+.seed-price {
+    color: #e53e3e;
+    font-weight: bold;
+}
+
+.seed-level {
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+/* 工具区域 */
+.tool-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+@media (min-width: 480px) {
+    .tool-buttons {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.tool-btn {
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tool-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(66, 153, 225, 0.4);
+}
+
+.tool-btn:active {
+    transform: translateY(0);
+}
+
+/* 页脚状态栏 */
+.footer {
+    margin-top: 30px;
+}
+
+.status-bar {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#statusMessage {
+    flex: 1;
+    min-width: 200px;
+    background: #edf2f7;
+    padding: 12px 20px;
+    border-radius: 12px;
+    color: #2d3748;
+    font-weight: 500;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    background: #718096;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn:hover {
+    background: #4a5568;
+    transform: translateY(-2px);
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #718096;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #e53e3e;
+}
+
+.plant-details {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.plant-icon-large {
+    font-size: 4rem;
+    flex-shrink: 0;
+}
+
+.plant-info {
+    flex: 1;
+}
+
+.plant-info p {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.plant-info strong {
+    color: #2d3748;
+    min-width: 80px;
+    display: inline-block;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.modal-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.modal-btn:not(.harvest):not(.remove) {
+    background: #4299e1;
+    color: white;
+}
+
+.modal-btn.harvest {
+    background: #48bb78;
+    color: white;
+}
+
+.modal-btn.remove {
+    background: #f56565;
+    color: white;
+}
+
+.modal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 花园信息提示 */
+.garden-info, .shop-info {
+    background: #edf2f7;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+    color: #4a5568;
+    font-size: 0.95rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .stats {
+        justify-content: center;
+    }
+    
+    .plant-details {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .modal-content {
+        margin: 20% auto;
+        padding: 20px;
+    }
+}
+
+/* 动画效果 */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.5s ease;
+}
+
+/* 加载动画 */
+.loading {
+    opacity: 0.7;
+    cursor: wait !important;
+}
+
+/* 禁用状态 */
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+}
+
+.disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}

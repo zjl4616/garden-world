@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的花园世界</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航 -->
+        <header class="header">
+            <h1><i class="fas fa-seedling"></i> 我的花园世界</h1>
+            <div class="stats">
+                <div class="stat-item">
+                    <i class="fas fa-coins"></i>
+                    <span id="coins">100</span> 金币
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-trophy"></i>
+                    等级 <span id="level">1</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 花园区域 -->
+        <main class="main-content">
+            <div class="garden-container">
+                <h2><i class="fas fa-tree"></i> 我的花园</h2>
+                <div class="garden-grid" id="gardenGrid">
+                    <!-- 花园格子将通过JS动态生成 -->
+                </div>
+                <div class="garden-info">
+                    <p>点击空地种植植物，点击已种植的植物进行收获</p>
+                </div>
+            </div>
+
+            <!-- 商店区域 -->
+            <div class="shop-container">
+                <h2><i class="fas fa-store"></i> 种子商店</h2>
+                <div class="seed-list" id="seedList">
+                    <!-- 种子将通过JS动态生成 -->
+                </div>
+                <div class="shop-info">
+                    <p>购买种子后，点击花园空地种植</p>
+                </div>
+            </div>
+
+            <!-- 工具区域 -->
+            <div class="tools-container">
+                <h2><i class="fas fa-tools"></i> 工具</h2>
+                <div class="tool-buttons">
+                    <button id="waterAll" class="tool-btn">
+                        <i class="fas fa-tint"></i> 全部浇水
+                    </button>
+                    <button id="harvestAll" class="tool-btn">
+                        <i class="fas fa-basket-shopping"></i> 全部收获
+                    </button>
+                    <button id="clearAll" class="tool-btn">
+                        <i class="fas fa-trash"></i> 清除空地
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- 状态栏 -->
+        <footer class="footer">
+            <div class="status-bar">
+                <div id="statusMessage">欢迎来到花园世界！点击空地开始种植吧~</div>
+                <div class="action-buttons">
+                    <button id="saveGame" class="action-btn">
+                        <i class="fas fa-save"></i> 保存游戏
+                    </button>
+                    <button id="loadGame" class="action-btn">
+                        <i class="fas fa-folder-open"></i> 加载游戏
+                    </button>
+                    <button id="resetGame" class="action-btn">
+                        <i class="fas fa-redo"></i> 重置游戏
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 植物详情模态框 -->
+    <div id="plantModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="plantName">植物详情</h2>
+            <div class="plant-details">
+                <div id="plantIcon" class="plant-icon-large">🌱</div>
+                <div class="plant-info">
+                    <p><strong>生长阶段：</strong><span id="plantStage">幼苗</span></p>
+                    <p><strong>剩余时间：</strong><span id="plantTime">2分钟</span></p>
+                    <p><strong>价值：</strong><span id="plantValue">10金币</span></p>
+                    <p><strong>描述：</strong><span id="plantDesc">一种可爱的植物</span></p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="waterPlant" class="modal-btn">
+                    <i class="fas fa-tint"></i> 浇水
+                </button>
+                <button id="harvestPlant" class="modal-btn harvest">
+                    <i class="fas fa-basket-shopping"></i> 收获
+                </button>
+                <button id="removePlant" class="modal-btn remove">
+                    <i class="fas fa-trash"></i> 移除
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
