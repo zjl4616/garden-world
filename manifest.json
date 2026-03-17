@@ -1,6 +1,6 @@
 {
-  "name": "我的花园世界",
-  "short_name": "花园世界",
+  "name": "欧阳的花园世界",
+  "short_name": "欧阳花园",
   "description": "一个简单的花园种植游戏",
   "start_url": ".",
   "display": "standalone",

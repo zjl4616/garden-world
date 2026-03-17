@@ -31,7 +31,7 @@ class GardenWorldGame {
         this.renderShop();
         this.setupEventListeners();
         this.updateUI();
-        this.showStatus('欢迎来到花园世界！点击空地开始种植吧~');
+        this.showStatus('欢迎来到欧阳的花园世界！点击空地开始种植吧~');
     }
     
     // 渲染花园网格
