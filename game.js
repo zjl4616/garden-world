@@ -15,7 +15,8 @@ class GardenWorldGame {
             { id: 2, name: '胡萝卜', price: 15, icon: '🥕', growthTime: 90, value: 30, level: 1, color: '#ed8936', description: '美味又营养的根茎蔬菜' },
             { id: 3, name: '玫瑰', price: 25, icon: '🌹', growthTime: 120, value: 50, level: 2, color: '#f56565', description: '象征爱情的花朵' },
             { id: 4, name: '苹果树', price: 50, icon: '🍎', growthTime: 180, value: 100, level: 3, color: '#68d391', description: '能结出甜美果实的树木' },
-            { id: 5, name: '仙人掌', price: 30, icon: '🌵', growthTime: 150, value: 60, level: 2, color: '#48bb78', description: '耐旱的多肉植物' }
+            { id: 5, name: '仙人掌', price: 30, icon: '🌵', growthTime: 150, value: 60, level: 2, color: '#48bb78', description: '耐旱的多肉植物' },
+            { id: 6, name: '欧阳花🌸', price: 45, icon: '🌸', growthTime: 130, value: 85, level: 3, color: '#d53f8c', description: '传说中的神秘花朵，开花时会有特殊效果' }
         ];
         
         // 植物生长阶段
@@ -272,7 +273,16 @@ class GardenWorldGame {
         this.coins += plant.value;
         this.addExperience(10);
         
-        this.showStatus(`收获${plant.name}！获得${plant.value}金币`);
+        // 欧阳花特殊效果
+        if (plant.name === '欧阳花🌸') {
+            const bonusCoins = 20;
+            const bonusExp = 5;
+            this.coins += bonusCoins;
+            this.addExperience(bonusExp);
+            this.showStatus(`收获${plant.name}！获得${plant.value}金币 + ${bonusCoins}额外金币和${bonusExp}经验值！🌸 欧阳花绽放了！`);
+        } else {
+            this.showStatus(`收获${plant.name}！获得${plant.value}金币`);
+        }
         
         // 移除植物
         this.gardenPlots[this.currentModalPlant] = { planted: false };

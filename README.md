@@ -17,6 +17,7 @@
 3. **玫瑰** 🌹 - 美丽花朵，较高收益
 4. **仙人掌** 🌵 - 耐旱植物，稳定收益
 5. **苹果树** 🍎 - 高级植物，高收益但生长慢
+6. **欧阳花** 🌸 - 神秘花朵，收获时有额外奖励
 
 ## 🚀 快速开始
 
@@ -92,14 +93,14 @@ garden-world/
 ```javascript
 {
     id: 6,
-    name: '草莓',
-    price: 40,
-    icon: '🍓',
-    growthTime: 150,
-    value: 80,
+    name: '欧阳花🌸',
+    price: 45,
+    icon: '🌸',
+    growthTime: 130,
+    value: 85,
     level: 3,
-    color: '#f56565',
-    description: '甜美多汁的红色果实'
+    color: '#d53f8c',
+    description: '传说中的神秘花朵，开花时会有特殊效果，收获时获得额外金币和经验'
 }
 ```
 
